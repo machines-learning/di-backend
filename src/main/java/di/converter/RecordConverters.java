@@ -6,6 +6,7 @@ import org.springframework.core.convert.converter.Converter;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class RecordConverters {
 
@@ -17,6 +18,7 @@ public class RecordConverters {
             record.setId(recordDto.getId());
 
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	    simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
             String date = simpleDateFormat.format(recordDto.getTimestamp());
             record.setDate(date);
 
