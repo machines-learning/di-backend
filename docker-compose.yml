@@ -5,7 +5,7 @@ mysqlserver:
   volumes:
   - "/home/ubuntu/di/database:/var/lib/mysql"
   environment:
-    MYSQL_DATABASE: running
+    MYSQL_DATABASE: di
     MYSQL_USER: liyikun
     MYSQL_PASSWORD: 123456
     MYSQL_ROOT_PASSWORD: root
