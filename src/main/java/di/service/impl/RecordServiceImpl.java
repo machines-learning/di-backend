@@ -7,6 +7,7 @@ import di.service.RecordDto;
 import di.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,7 +23,8 @@ public class RecordServiceImpl implements RecordService {
 
     @Override
     public List<RecordDto> findRecordsByDate(String date) {
-        List<Record> records = this.recordRepository.findRecordsByDate(date);
+        Sort sort = new Sort(Sort.Direction.ASC, "timestamp");
+        List<Record> records = this.recordRepository.findRecordsByDate(date, sort);
         List<RecordDto> results = new ArrayList<>();
         if (records != null && records.size() > 0) {
             for (Record record : records) {
